@@ -9,8 +9,11 @@ namespace App3
         public App ()
         {
             InitializeComponent();
+#if DEBUG
+            HotReloader.Current.Run(this);
 
-            MainPage = new MainPage();
+#endif
+            MainPage = new NavigationPage (new MainPage());
         }
 
         protected override void OnStart ()
